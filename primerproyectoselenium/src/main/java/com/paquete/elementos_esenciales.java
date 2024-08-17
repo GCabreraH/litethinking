@@ -1,4 +1,5 @@
-package com.litethinking;
+//package com.litethinking; paquete original
+package com.paquete;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -9,7 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 
-public class Main {
+public class elementos_esenciales {
     public static void main(String[] args) {
         
         //Configurar el driver del navegador
