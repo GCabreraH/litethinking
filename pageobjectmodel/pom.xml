@@ -14,19 +14,19 @@
     </properties>
 <dependencies>
 
-<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-<dependency>
-    <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-java</artifactId>
-    <version>4.23.1</version>
-</dependency>
-
     <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 <dependency>
     <groupId>org.junit.jupiter</groupId>
     <artifactId>junit-jupiter-api</artifactId>
     <version>5.11.0</version>
     <scope>test</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>4.23.1</version>
 </dependency>
 
 <!-- https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine -->
@@ -45,6 +45,13 @@ dependencia para generar los reportes de test-->
     <artifactId>maven-surefire-report-plugin</artifactId>
     <version>3.4.0</version>
 </dependency>
+
+<plugin>
+	<groupId>io.qameta.allure</groupId>
+	<artifactId>allure-maven</artifactId>
+	<version>2.12.0</version>
+</plugin>
+
 
 </dependencies>
 </project>

@@ -32,12 +32,7 @@ public class LoginTest {
     public void loginSuccesfull(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login("standard_user", "secret_sauce");
-        try {
-            Thread.sleep(milli);
-        } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        loginPage.isUserInPrivatePage();
 
 }
 
@@ -45,24 +40,13 @@ public class LoginTest {
 public void loginProblemaUser(){
     LoginPage loginPage = new LoginPage(driver);
     loginPage.login("problem_user", "secret_sauce");
-    try {
-        Thread.sleep(milli);
-    } catch (InterruptedException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-    }
 
-}@Test
+}
+@Test
 public void loginLockedUser(){
     LoginPage loginPage = new LoginPage(driver);
     loginPage.login("locked_out_user", "secret_sauce");
-    try {
-        Thread.sleep(milli);
-    } catch (InterruptedException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-    }
-
+    loginPage.isShowMessageError();
 }
 
 @Test
@@ -72,7 +56,6 @@ public void loginWrongUser(){
     try {
         Thread.sleep(milli);
     } catch (InterruptedException e) {
-        // TODO Auto-generated catch block
         e.printStackTrace();
     }
 
