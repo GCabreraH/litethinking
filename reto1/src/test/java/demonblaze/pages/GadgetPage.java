@@ -81,10 +81,10 @@ public class GadgetPage {
     }
 
     public void asusFullHDGetPrice(){
-        driver.findElement(txtMenuLaptops).click();
+        driver.findElement(txtMenuMonitors).click();
         driver.findElement(txtAsusFullHD).click();
         String asusFullHDPrice = driver.findElement(txtAsusFullHDPrice).getText();
-        assert asusFullHDPrice.contains("700"): "El precio no es el esperado. Precio encontrado" + asusFullHDPrice;
+        assert asusFullHDPrice.contains("230"): "El precio no es el esperado. Precio encontrado" + asusFullHDPrice;
     }
     /*public void isShowMessage(){
         assertEquals("El mensaje de error no es correcto o no fue encontrado (msj error seteado como prueba NOOK)", driver.findElement(errorMessage).getText(),"Epic sadface: Sorry, this user has been locked out.");

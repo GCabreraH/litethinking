@@ -76,13 +76,13 @@ public class GadgetsTest {
     @Test
     public void asusFullHDExist(){
         GadgetPage homePage = new GadgetPage(driver);
-        homePage.macBookExist();
+        homePage.asusFullHDExist();
     }
 
     @Test
     public void asusFullHDGetPrice(){
         GadgetPage homePage = new GadgetPage(driver);
-        homePage.macBookGetPrice();
+        homePage.asusFullHDGetPrice();
 
     }
 
