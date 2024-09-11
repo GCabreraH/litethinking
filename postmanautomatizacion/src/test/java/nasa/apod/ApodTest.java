@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.Request;
 
@@ -14,15 +15,20 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public class ApodTest {
+        RequestSpecification requestSpecification;
+    @BeforeEach
+    public void configure(){
 
+        //configuracion inicial
+        RestAssured.baseURI = "https://api.nasa.gov";
+        //armar request
+        requestSpecification = RestAssured.given();
+        requestSpecification.param("api_key","CdrPgq3EdL8kO5aDUjsvqYDOqUlYMgA74ktUiJiH");
+
+        }
     @Test
     public void apodDay(){
         
-        //configuracion inicial
-            RestAssured.baseURI = "https://api.nasa.gov";
-        //armar request
-            RequestSpecification requestSpecification = RestAssured.given();
-            requestSpecification.param("api_key","CdrPgq3EdL8kO5aDUjsvqYDOqUlYMgA74ktUiJiH");
             requestSpecification.param("date","2024-09-01");
 
 
