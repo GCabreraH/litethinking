@@ -23,6 +23,13 @@ public class Reto2Test extends ResqresApiBase {
         Reto2Questions.validateStatusCode(response, 200);
         System.out.println(response.asPrettyString());
     }
+
+    @Test
+    public void getSingleUserNotfound(){
+        Response response = Reto2Request.getUserNotFound(requestSpecification,"23");
+        Reto2Questions.validateStatusCode(response, 404);
+        System.out.println(response.asPrettyString());
+    }
     
 }
 
