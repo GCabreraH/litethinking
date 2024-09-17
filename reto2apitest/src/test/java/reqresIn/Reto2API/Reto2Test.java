@@ -18,8 +18,8 @@ public class Reto2Test extends ResqresApiBase {
     }
 
     @Test
-    public void singleTestUser12(){
-        Response response = Reto2Request.getPageUser(requestSpecification,"2");
+    public void getSingleUser(){
+        Response response = Reto2Request.getSingleUser(requestSpecification,"12");
         Reto2Questions.validateStatusCode(response, 200);
         System.out.println(response.asPrettyString());
     }

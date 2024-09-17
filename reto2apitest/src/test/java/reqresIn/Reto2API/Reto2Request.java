@@ -10,4 +10,8 @@ public class Reto2Request {
         //generar el response
         return requestSpecification.get("/api/users");
     }
+        public static Response getSingleUser(RequestSpecification requestSpecification, String userId){
+            // Aquí simplemente añadimos el userId al path del endpoint
+            return requestSpecification.get("/api/users/" + userId); 
+    }
 }
