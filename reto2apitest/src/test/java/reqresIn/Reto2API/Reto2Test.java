@@ -33,8 +33,14 @@ public class Reto2Test extends ResqresApiBase {
 
     @Test
     public void createSingleUser(){
-        Response response = Reto2Request.postNewUser(requestSpecification,"Guillermo","Cabrera");
-        Reto2Questions.validateStatusCode(response, 404);
+        Response response = Reto2Request.postNewUser(requestSpecification,"Guillermo Cabrera","QA engineer Senior");
+        Reto2Questions.validateStatusCode(response, 201);
+        System.out.println("response: \n" + response.asPrettyString());
+    }
+    @Test
+    public void consumeDelayedResponse(){
+        Response response = Reto2Request.consumeDelayedResponse(requestSpecification,"5");
+        Reto2Questions.validateStatusCode(response, 200);
         System.out.println(response.asPrettyString());
     }
     

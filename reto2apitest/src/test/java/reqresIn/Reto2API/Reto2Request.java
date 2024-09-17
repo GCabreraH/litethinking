@@ -19,7 +19,15 @@ public class Reto2Request {
             return requestSpecification.get("/api/users/" + userId);
     }
 
-    public static Response postNewUser(RequestSpecification requestSpecification, String name, String lastName){
-        return requestSpecification.post("/api/users/" + name + lastName);
-}
+    public static Response postNewUser(RequestSpecification requestSpecification, String name, String job){
+        String jsonBody = "{ \"name\": \"" + name + "\", \"job\": \"" + job + "\" }";
+        System.out.println(jsonBody+": jSon Body");
+        return requestSpecification.body(jsonBody).post("/api/users");
+    }
+    public static Response consumeDelayedResponse(RequestSpecification requestSpecification, String delay){
+        //parametro y valor.
+        requestSpecification.param("delay", delay);
+            //generar el response
+            return requestSpecification.get("/api/users");
+    }
 }
