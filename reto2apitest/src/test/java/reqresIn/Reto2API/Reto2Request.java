@@ -10,7 +10,7 @@ public class Reto2Request {
             //generar el response
             return requestSpecification.get("/api/users");
     }
-        public static Response getSingleUser(RequestSpecification requestSpecification, String userId){
+    public static Response getSingleUser(RequestSpecification requestSpecification, String userId){
             // Aquí simplemente añadimos el userId al path del endpoint
             return requestSpecification.get("/api/users/" + userId); 
     }
@@ -18,4 +18,8 @@ public class Reto2Request {
     public static Response getUserNotFound(RequestSpecification requestSpecification, String userId){
             return requestSpecification.get("/api/users/" + userId);
     }
+
+    public static Response postNewUser(RequestSpecification requestSpecification, String name, String lastName){
+        return requestSpecification.post("/api/users/" + name + lastName);
+}
 }

@@ -30,6 +30,13 @@ public class Reto2Test extends ResqresApiBase {
         Reto2Questions.validateStatusCode(response, 404);
         System.out.println(response.asPrettyString());
     }
+
+    @Test
+    public void createSingleUser(){
+        Response response = Reto2Request.postNewUser(requestSpecification,"Guillermo","Cabrera");
+        Reto2Questions.validateStatusCode(response, 404);
+        System.out.println(response.asPrettyString());
+    }
     
 }
 
