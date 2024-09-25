@@ -118,7 +118,7 @@ docker compose run --rm k6 run  /scripts/Flows/FlowStandardUser.js
 #### Caso Reto3
 
 ```bash
-docker compose run --rm k6 run  /scripts/Flows/FlowReto3.js
+docker compose run --rm k6 run  /scripts/Flows/PruebaWorkshop.js
 ```
 
 
