@@ -1,4 +1,4 @@
-# Proyecto de Pruebas de Perfomance
+# Reto 3 Caso de Pruebas de Perfomance
 
 Proyecto inspirado en el articulo - <https://medium.com/swlh/beautiful-load-testing-with-k6-and-docker-compose-4454edb3a2e3> - Para temas academicos
 
@@ -28,130 +28,16 @@ docker compose up -d influxdb grafana app
 Para ver el dashboard se debe ingresar a
 <http://localhost:3000/d/k6/k6-load-testing-results>
 
-## Type Test
-
-Seleccionar el tipo de prueba a ejecutar y remplazarlo en el script.
-
-### Smoke Test
-
-```javascript
-// Smoke Test
-export let options = {
-  stages: [
-    { duration: "5s", target: 2 },
-  ]
-};
-```
-
-### Load Test
-
-```javascript
-// Load Test
-export let options = {
-  stages: [
-    { duration: "10s", target: 10 },
-    { duration: "5m", target: 10 },
-    { duration: "10s", target: 0 },
-  ]
-};
-```
-
-### Stress Test
-
-```javascript
-// Stress Test
-export let options = {
-  stages: [
-    { duration: "30s", target: 50 },
-    { duration: "10m", target: 50 },
-    { duration: "30s", target: 0 },
-  ]
-};
-```
-
-### Soak Test
-
-```javascript
-// Soak Test
-export let options = {
-  stages: [
-    { duration: "5m", target: 1 },
-    { duration: "10m", target: 10 },
-    { duration: "5m", target: 0 },
-  ]
-};
-```
-
-### Spike Test
-
-```javascript
-// Spike Test
-export let options = {
-  stages: [
-    { duration: "1s", target: 500 },
-    { duration: "1m", target: 500 },
-    { duration: "1s", target: 500 },
-  ]
-};
-```
-
-### Breakpoint Test
-
-```javascript
-// Breakpoint Test
-export let options = {
-  stages: [
-    { duration: "1h", target: 1000 }
-  ]
-};
-```
-
 ## Run Tests
 
 ### Flows
 
-#### Caso completo
-
-```bash
-docker compose run --rm k6 run  /scripts/Flows/FlowStandardUser.js
-```
 #### Caso Reto3
 
 ```bash
 docker compose run --rm k6 run  /scripts/Flows/PruebaWorkshop.js
 ```
+El caso de prueba de performance diseñado tiene el objetivo de evaluar cómo responde una API bajo diferentes cargas, simulando usuarios que realizan tres operaciones clave: consultar todos los TO DO's, consultar uno específico y crear un nuevo TO DO.
+En el caso de "Consultar Todos los TO DO's" Cada VU (usuario virtual) hace una petición GET al endpoint que devuelve la lista completa de TO DO's. Lo relacionado a "Consultar un TO DO Específico" cada VU elige aleatoriamente un TO DO y realiza otra petición GET para consultar los detalles de ese TO DO en particular. Por ultimo, lo relacionado a "Crear un Nuevo TO DO", cada VU hace una petición POST al endpoint para crear un nuevo TO DO, enviando un objeto JSON con un título y una descripción aleatoria.
 
-
-### Servicios
-
-#### Create Test
-
-```bash
-docker compose run --rm k6 run  /scripts/RestAPI/createTest.js
-```
-
-#### Delete Test
-
-```bash
-docker compose run --rm k6 run  /scripts/RestAPI/deleteTest.js
-```
-
-#### Health Test
-
-```bash
-docker compose run --rm k6 run  /scripts/RestAPI/healthTest.js
-```
-
-#### Index Test
-
-```bash
-docker compose run --rm k6 run  /scripts/RestAPI/indexTest.js
-```
-
-#### Show Test
-
-```bash
-docker compose run --rm k6 run  /scripts/RestAPI/showTest.js
-```
-
-
+En la carpeta IMagenes de la raiz del proyecto se evidencian distintos momentos de la ejecución del caso de prueba: el inicio, primera parte de la ejecucion, ultimas partes de la ejecución y el fin de la ejecución. Todo esto con la información de la terminal, imagen de la terminal con la ejecucion en tiempo real, graficas del dashboard de grafana y log de estado de docker.
